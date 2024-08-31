@@ -40,4 +40,5 @@ This code base contist of following packages/modules
   - extra package for analytics purpose to log (call api) when needed
 
 ![alt text](https://github.com/bhaumikpan/walmarttakehome/blob/master/app_screenshot)
+![alt text](https://github.com/bhaumikpan/walmarttakehome/blob/master/Screen_recording_20240831_132957.webm)
  
