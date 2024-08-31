@@ -88,4 +88,4 @@ The project is organized into multiple packages based on functionality:
 - **utils**: Contains utility classes and extension functions.
 - **testing**: Contains the test classes for unit testing.
 
-![Alt text]([http://full/path/to/img.jpg](https://github.com/bhaumikpan/walmarttakehome/blob/master/app_screenshot) "Screenshot")
+![Alt text](https://github.com/bhaumikpan/walmarttakehome/blob/master/app_screenshot) "Screenshot")
