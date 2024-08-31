@@ -3,6 +3,7 @@ package com.example.analytics.impl
 import com.example.analytics.model.Analytics
 import com.example.analytics.repo.AnalyticsRepo
 import com.example.di.IoDispatcher
+
 import kotlinx.coroutines.CoroutineDispatcher
 
 import java.time.ZoneOffset
@@ -12,7 +13,7 @@ import javax.inject.Inject
 
 class AnalyticsRepoImpl @Inject constructor(
     @IoDispatcher private val dispatcher: CoroutineDispatcher
-): AnalyticsRepo {
+) : AnalyticsRepo {
     private fun getCurrentUtcTimestamp(): String {
         val now = ZonedDateTime.now(ZoneOffset.UTC)
         return now.toString()

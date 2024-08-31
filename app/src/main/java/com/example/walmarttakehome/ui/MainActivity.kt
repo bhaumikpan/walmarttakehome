@@ -2,11 +2,15 @@ package com.example.walmarttakehome.ui
 
 import android.content.Intent
 import android.os.Bundle
+
 import androidx.activity.ComponentActivity
+
 import com.example.feature_domain.repository.FeatureRepo
 import com.example.feature_ui.view.FeatureActivity
 import com.example.walmarttakehome.R
+
 import dagger.hilt.android.AndroidEntryPoint
+
 import javax.inject.Inject
 
 @AndroidEntryPoint

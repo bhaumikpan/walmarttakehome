@@ -1,9 +1,11 @@
 package com.example.feature_ui.view
 
-
 import android.os.Bundle
+
 import androidx.appcompat.app.AppCompatActivity
+
 import com.example.feature_ui.R
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

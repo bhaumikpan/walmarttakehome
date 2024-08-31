@@ -2,7 +2,9 @@ package com.example.feature_ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+
 import androidx.recyclerview.widget.RecyclerView
+
 import com.example.feature_domain.model.Country
 import com.example.feature_ui.databinding.ListItemLayoutBinding
 

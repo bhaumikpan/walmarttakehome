@@ -42,7 +42,8 @@ class FeatureViewModel @Inject constructor(
                     }
 
                     is CoreResult.OnError -> {
-                        val error = response.error ?: Throwable("EMPTY ERROR IN RESPONSE: UNKNOWN ERROR")
+                        val error =
+                            response.error ?: Throwable("EMPTY ERROR IN RESPONSE: UNKNOWN ERROR")
                         _error.postValue(error.message)
                         analyticsRepo.submit("GOT ERROR:" + error.message)
                     }

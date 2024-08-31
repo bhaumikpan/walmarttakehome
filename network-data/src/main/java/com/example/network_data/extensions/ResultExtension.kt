@@ -5,7 +5,7 @@ package com.example.network_data.extensions
  * if needed we can more centralized logic to handle network / any communication error handling
  * if needed we can use Default for initialization of Objects
  *
- * ing Result object
+ * returning Result object as CoreResult
  */
 
 sealed class CoreResult<out T> {
