@@ -1,44 +1,89 @@
-WalmartTakeHome project
-- where display list of countries from given api on Android devices
 
-ARCHITECTURE
+# Walmart Take-Home Project
 
-  - Hilt for DI purpose
-  - CLEAN ARCH  where feature ui/data/domain is seprated in its module. (to keep sepration of concern)
-  - on UI module feaureUI MVVM IS USED with COROUTINE calls to achieve target
+This repository contains a sample Android project developed as part of a take-home assignment for Walmart. The project demonstrates the implementation of a modern Android application using best practices, clean architecture, and several Android Jetpack components.
 
-This code base contist of following packages/modules
+## Table of Contents
 
-- main - module
-  default App laucher activty, onCreate start featureui module activity
-- featureui - module
-  - view
-    - FeatureActivity
-    - ListFragment
-  - viewmodel
-    - FeatureViewModel
-  - adapter
-    - ListAdapter       
-  default activity FeatureActivity shows ListFragment - which observes 2 LiveData - a for list and b for error  
-  ListFragment binds Recycleview for displaying list, and FeatureViewModel as viewmodel for api calls
-  FeatureViewModel, while init calls FeaureRepo coroutine api to collect list and stores in LiveData
-- feature-data
-  - has api, di, repo packages
-    - api has, FeaureApi, declared which api to call to get list
-    - di has, extra stuffs needed for di purposes bind for FeatureApi and FeatureRepo
-    - *IMPORTANT* repo has, FeaureRepoImpl provides the implemtation of FeatureRepo
-  - has unit test package where FeatureRepoImpl unit testing is done for Success and Error cases 
-- feature-domain
-  - has model, repository
-    - model has data class Country
-    - repositoy has FeatureRepo with suspen methos to call api
-- netwrok-data
-  - has di and extensions
-    - di has Dispatcher which give IO dispacture to use with annotation
-    - extension has CoreResult for provdies extension of Kotelin Result class with more leverage of Understanding readibility of calls
-- analytics
-  - extra package for analytics purpose to log (call api) when needed
+- [Project Overview](#project-overview)
+- [Architecture](#architecture)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Setup Instructions](#setup-instructions)
+- [Testing](#testing)
+- [Code Structure](#code-structure)
 
-![alt text](https://github.com/bhaumikpan/walmarttakehome/blob/master/app_screenshot)
-![alt text](https://github.com/bhaumikpan/walmarttakehome/blob/master/Screen_recording_20240831_132957.webm)
- 
+## Project Overview
+
+The Walmart Take-Home Project is designed to showcase a sample Android application that demonstrates the ability to retrieve and display a list of products from an API. The app is built using modern development practices, focusing on scalability, testability, and maintainability.
+
+## Architecture
+
+This project follows the **MVVM (Model-View-ViewModel)** with **Clean Architecture)** architecture pattern, which is a widely used design pattern for Android applications. The architecture separates the application logic into different components, making the code more modular and easier to maintain.
+
+- **Model**: Represents the data logic of the application.
+- **ViewModel**: Acts as a bridge between the Model and the View, holding UI-related data and handling the logic to update the View.
+- **View**: Represents the UI layer, observing the ViewModel for data updates.
+
+## Technologies Used
+
+- **Kotlin**: The primary programming language used for Android development.
+- **Android Jetpack Components**:
+  - **ViewModel**: Manages UI-related data in a lifecycle-conscious way.
+  - **LiveData**: Allows the UI to observe data changes.
+- **Retrofit**: A type-safe HTTP client for Android and Java.
+- **Hilt**: Dependency injection library for Android.
+- **Coroutine**: For asynchronous programming.
+- **Mockk**: For mocking in tests.
+- **JUnit**: For unit testing.
+
+## Features
+
+- Fetches and displays a list of Countries from a remote API.
+- Supports error handling and displays appropriate messages for network errors.
+- Follows MVVM architecture to separate concerns and promote testability.
+- Unit tests covering core components.
+
+## Setup Instructions
+
+To run this project on your local machine, follow these steps:
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/bhaumikpan/walmarttakehome.git
+   ```
+
+2. **Open the project**:
+   - Use Android Studio to open the cloned project.
+
+3. **Sync the project**:
+   - Let Android Studio sync the project and download all necessary dependencies.
+
+4. **Run the application**:
+   - Use the "Run" button in Android Studio or use the following command:
+   ```bash
+   ./gradlew assembleDebug
+   ```
+
+5. **Build and Run the tests**:
+   - Run the unit tests using:
+   ```bash
+   ./gradlew test
+   ```
+
+## Testing
+
+The project inside feature-data includes unit tests for various components to ensure reliability and correctness. The tests are written using JUnit and Mockk.
+
+- **Repository Tests**: Verifies that the repository returns the correct data and handles errors as expected.
+
+## Code Structure
+
+The project is organized into multiple packages based on functionality:
+
+- **data**: Contains the data sources, models, and repository implementations.
+- **di**: Contains dependency injection modules using Hilt.
+- **ui**: Contains the UI-related classes such as activities, fragments, and view models.
+- **network**: Contains the Retrofit setup and API service definitions.
+- **utils**: Contains utility classes and extension functions.
+- **testing**: Contains the test classes for unit testing.
