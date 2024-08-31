@@ -38,4 +38,6 @@ This code base contist of following packages/modules
     - extension has CoreResult for provdies extension of Kotelin Result class with more leverage of Understanding readibility of calls
 - analytics
   - extra package for analytics purpose to log (call api) when needed
+
+![alt text](https://github.com/bhaumikpan/walmarttakehome/blob/master/app_screenshot)
  
