@@ -8,18 +8,20 @@ buildscript {
     // todo use lib.version.toml
     extra["hilt_version"] = "2.48"
     extra["retrofitVersion"] = "2.11.0"
-    extra["okHttpVersion"] = "4.2.0"
+    extra["okHttpVersion"] = "4.9.3"
+
+
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
+        classpath(libs.kotlin.gradle.plugin)
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 plugins {
-    id("com.android.application") version "8.2.0" apply false
+    id("com.android.application") version "8.2.2" apply false
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
     id("com.google.dagger.hilt.android") version  "2.48" apply false
-    id("com.android.library") version "8.2.0" apply false
+    id("com.android.library") version "8.2.2" apply false
 }

@@ -12,18 +12,13 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
-//    versionCatalogs {
-//        create("libs") {
-//            from(files("./gradle/libs.versions.toml.todo"))
-//        }
-//    }
 }
 
 rootProject.name = "WalmartTakeHome"
 
 include(":app")
+include(":network-data")
 include(":feature-data")
 include(":feature-domain")
-include(":network-data")
 include(":feature-ui")
 include(":analytics")

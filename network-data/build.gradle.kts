@@ -42,16 +42,17 @@ val networkDependencies = mapOf(
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("com.google.android.material:material:1.12.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    implementation(libs.core.ktx)
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 
 
-    implementation("androidx.core:core-ktx:1.13.1")
+    implementation(libs.core.ktx)
 
+    implementation(libs.gson)
     // networking with retrofit
     implementation(networkDependencies["retrofit"]!!)
     implementation(networkDependencies["retrofitGsonConverter"]!!)
@@ -60,8 +61,8 @@ dependencies {
     implementation(networkDependencies["okHttp3Logging"]!!)
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-android-compiler:2.48")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
 
 }
