@@ -1,6 +1,7 @@
 package com.example.feature_ui.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.feature_domain.model.Country
+import com.example.feature_domain.model.ListItem
 
 import com.example.feature_ui.adapter.ListAdapter
 import com.example.feature_ui.databinding.ListFragmentBinding
@@ -46,7 +49,9 @@ class ListFragment: Fragment() {
         // Observe the items LiveData
         viewModel.items.observe(viewLifecycleOwner) { items ->
             // Update RecyclerView with the new list
-            binding.recyclerView.adapter = ListAdapter(items)
+            val answer = generateCountryListWithHeaders(items)
+            Log.d("BMK", ""+ answer[0])
+            binding.recyclerView.adapter = ListAdapter(answer)
         }
 
         // Observe the error LiveData
@@ -55,6 +60,24 @@ class ListFragment: Fragment() {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    // Create a function to generate a list of headers and contacts
+    private fun generateCountryListWithHeaders(contacts: List<Country>): List<ListItem> {
+        val groupedContacts = contacts.sortedBy { it.name }.groupBy { it.name?.first() }
+        val listItems = mutableListOf<ListItem>()
+
+        for ((header, items) in groupedContacts) {
+            // Add the header (A, B, C, etc.)
+            listItems.add(header?.let { ListItem(char = it, country = Country(), isHeader = true) }!!)
+
+            // Add the contacts under that header
+            items.forEach { contact ->
+                listItems.add(ListItem( country = contact, isHeader = false))
+            }
+        }
+
+        return listItems
     }
 
     override fun onDestroyView() {

@@ -20,7 +20,9 @@ class FeatureRepoImpl @Inject constructor(
             runCatching {
                 api.getCountryList()
             }.fold(
-                onSuccess = { CoreResult.OnSuccess(it) },
+                onSuccess = { it ->
+                    CoreResult.OnSuccess(it.sortedBy { it.code })
+                },
                 onFailure = { CoreResult.OnError(it) }
             )
         }
