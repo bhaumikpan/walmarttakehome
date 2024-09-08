@@ -1,7 +1,7 @@
 package com.example.feature_ui.view
 
 import android.os.Bundle
-import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +10,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.feature_domain.model.Country
-import com.example.feature_domain.model.DisplayItem
-import com.example.feature_domain.model.IDisplayItem
 
 import com.example.feature_ui.adapter.ListAdapter
 import com.example.feature_ui.databinding.ListFragmentBinding

@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.feature_domain.model.Country
-import com.example.feature_domain.model.DisplayItem
+import com.example.feature_domain.model.IDisplayItem
 import com.example.feature_ui.databinding.ItemHeaderLayoutBinding
 import com.example.feature_ui.databinding.ListItemLayoutBinding
 
-class ListAdapter(private val items: List<DisplayItem>) :
+class ListAdapter(private val items: List<IDisplayItem>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     // Define view types
