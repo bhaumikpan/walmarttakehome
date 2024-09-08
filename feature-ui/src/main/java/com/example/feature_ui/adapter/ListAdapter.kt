@@ -2,19 +2,16 @@ package com.example.feature_ui.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.feature_domain.model.Country
-import com.example.feature_domain.model.ListItem
-import com.example.feature_ui.R
+import com.example.feature_domain.model.DisplayItem
 import com.example.feature_ui.databinding.ItemHeaderLayoutBinding
 import com.example.feature_ui.databinding.ListItemLayoutBinding
 
-class ListAdapter(private val items: List<ListItem>) :
+class ListAdapter(private val items: List<DisplayItem>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     // Define view types
@@ -24,9 +21,6 @@ class ListAdapter(private val items: List<ListItem>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        /*val binding =
-            ListItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ListViewHolder(binding)*/
         return if (viewType == VIEW_TYPE_HEADER) {
             val binding =
                 ItemHeaderLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -40,8 +34,9 @@ class ListAdapter(private val items: List<ListItem>) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val listItem = items[position]
+
         if (holder is HeaderViewHolder) {
-            holder.bind(listItem.char.toString())
+            holder.bind(listItem.header)
         } else if (holder is ListViewHolder) {
             holder.bind(listItem.country)
         }
@@ -49,7 +44,7 @@ class ListAdapter(private val items: List<ListItem>) :
 
     // Determine if it's a header or item
     override fun getItemViewType(position: Int): Int {
-        return if (items[position].isHeader) VIEW_TYPE_HEADER else VIEW_TYPE_ITEM
+        return if (items[position].header.isNotBlank()) VIEW_TYPE_HEADER else VIEW_TYPE_ITEM
     }
 
     override fun getItemCount() = items.size
