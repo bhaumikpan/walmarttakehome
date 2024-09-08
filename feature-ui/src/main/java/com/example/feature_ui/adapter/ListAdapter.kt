@@ -40,12 +40,9 @@ class ListAdapter(private val items: List<ListItem>) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val listItem = items[position]
-
         if (holder is HeaderViewHolder) {
-            Log.d("BMK", "binding head $position")
             holder.bind(listItem.char.toString())
         } else if (holder is ListViewHolder) {
-            Log.d("BMK", "binding country $position")
             holder.bind(listItem.country)
         }
     }
